@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import HomeButton from "../Global/HomeButton";
 import PickleRick from "../../picklerick.png";
+import Solo from "./Solo";
 
 import { connect } from "react-redux";
 import { getCharById } from "../../actions/getCharById";
-import { CharCard } from "../Global/globalStyles";
 import { Link } from "react-router-dom";
 import { Loading } from "../Global/globalStyles";
 
@@ -17,6 +17,7 @@ const SoloChar = props => {
 
   if (getting) {
     return (
+      // I'm pickle Rick!!!
       <Loading>
         <img src={PickleRick} alt="Pickle Rick" />
       </Loading>
@@ -27,14 +28,7 @@ const SoloChar = props => {
     <CharsWrapper>
       <HomeButton />
       <Link to="/chars">Rick and Morty Character List</Link>
-      <CharCard>
-        <p>{char.name}</p>
-        <img src={char.image} alt="profile pic" />
-        <p>{char.status}</p>
-        <p>{char.species}</p>
-        <p>{char.gender}</p>
-        {/* {console.log(char.origin.name)} */}
-      </CharCard>
+      <Solo char={char} />
     </CharsWrapper>
   );
 };
